@@ -1,5 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
-from app import app
+from app import app, client
 from .forms import LoginForm
 
 @app.route('/')
@@ -9,7 +9,12 @@ def index():
 	return render_template('index.html', **locals())
 @app.route('/hello/<string:name>/')
 def hello(name):
-	return render_template('hello.html', **locals())
+    res = client.query('temperature in Washington, DC on October 3, 2012')
+    text = []
+    for pod in res.pods:
+        for sub in pod.subpods:
+            text.append(sub)
+    return render_template('hello.html', **locals())
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
