@@ -5,10 +5,17 @@
     {% else %}
     <title>Welcome to Rich Chigga's Homepage</title>
     {% endif %}
+    <link href="https://fonts.googleapis.com/css?family=VT323" 
+    rel="stylesheet">
+    <style>
+    body {
+      font-family: 'VT323', glyph;
+      font-size: 36px;
+      text-align: center;
+    }
+    </style>
   </head>
   <body>
-    <div>Rich Chigga's Homepage: <a href="/index">Home</a></div>
-    <div>Rich Chigga Hot Fire: <img src="Rich-Chigga-Ghostface.jpg" />
     <hr>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
