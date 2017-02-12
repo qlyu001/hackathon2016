@@ -3,14 +3,14 @@ from app import app
 from .forms import LoginForm
 
 @app.route('/')
-@app.route('/index/')
+@app.route('/index')
 def index():
-	user = {'nickname' : 'Melissa'}
-	return render_template('index.html', **locals())
+  user = {'nickname' : 'Melissa'}
+  return render_template('index.html', **locals())
 @app.route('/hello/<string:name>/')
 def hello(name):
-	return render_template('hello.html', **locals())
-@app.route('/login/', methods=['GET', 'POST'])
+  return render_template('hello.html', **locals())
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
