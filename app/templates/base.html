@@ -1,24 +1,41 @@
+<!DOCTYPE html>
 <html>
   <head>
     {% if title %}
-    <title>{{ title }} - Rich Chigga</title>
+    <title>{{ title }} - microblog</title>
     {% else %}
-    <title>Welcome to Rich Chigga's Homepage</title>
+    <title>microblog</title>
     {% endif %}
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div>Rich Chigga's Homepage: <a href="/index">Home</a></div>
-    <div>Rich Chigga Hot Fire: <img src="Rich-Chigga-Ghostface.jpg" />
-    <hr>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }} </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    {% block content %}{% endblock %}
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">microblog</a>
+            <ul class="nav">
+              <li><a href="{{ url_for('index') }}">Home</a></li>
+
+            </ul>
+          <div class="nav-collapse collapse">
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
   </body>
 </html>
